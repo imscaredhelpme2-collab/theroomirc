@@ -1,0 +1,16 @@
+{
+  "id": "stacy",
+  "name": "Stacy (Memphis pop)",
+  "description": "1980s postmodern pattern explosion.",
+  "labels": {
+    "room_title": "♡☆DANCE FLOOR☆♡",
+    "roster_title": "Who's dancing?!",
+    "prompt": "☆",
+    "placeholder": "SEND YOUR GROOVE!!",
+    "send_label": "Dance!",
+    "intro": "Let's groove, baby!",
+    "live_label": "GROOVIN!",
+    "lost_label": "...",
+    "badge": "Pop Star Princess!"
+  }
+}

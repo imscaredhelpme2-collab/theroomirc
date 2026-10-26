@@ -1,0 +1,110 @@
+/* ---------- 2f. STACY : MEMPHIS POP, 1980s postmodern pattern explosion ---------- */
+body[data-theme="stacy"] {
+  --bg: #00c8dc; --panel: #fff6dc; --text: #111111; --muted: #6b2b57; --accent: #d934a2;
+  --border: #111111; --radius: 0; --msg-radius: 0;
+  --msg-bg: #fff6dc; --msg-own-bg: #ffe52e; --input-bg: #ffffff; --chat-bg: #fff6dc;
+  --font: "Trebuchet MS", Arial, sans-serif;
+  --mono: "Courier New", monospace;
+  --pink: #ff4ba4; --yellow: #ffe52e; --ink: #111111;
+  --c-sophia: #ff7ab8; --c-dream: #b9b9ff; --c-lucy: #9fd8e6; --c-terminal: #44dd77; --c-melody: #33ccaa; --c-stacy: #d934a2;
+  line-height: 1.6; overflow-wrap: anywhere;
+  background-color: #00c8dc;
+  /* squiggles, confetti, stripes, and geometric shapes */
+  background-image:
+    radial-gradient(circle, #111 2px, transparent 3px),
+    radial-gradient(circle, #ff3e9d 3px, transparent 4px),
+    repeating-linear-gradient(135deg, transparent 0 17px, rgba(255,255,255,.75) 17px 20px, transparent 20px 35px),
+    linear-gradient(35deg, transparent 0 46%, #ffe52e 46% 53%, transparent 53% 100%);
+  background-size: 37px 37px, 53px 47px, 100% 100%, 180px 180px;
+  background-position: 0 0, 15px 21px, 0 0, right top;
+  background-attachment: fixed;
+}
+body[data-theme="stacy"] .bg-layer { background: none; }
+/* "ZAP!" sticker (floats in the corner so it never pushes the layout) */
+body[data-theme="stacy"] .bg-layer::before {
+  content: "\2605  ZAP!  \2605"; position: absolute; right: 14px; bottom: 10px; padding: 8px 18px;
+  color: #111; background: #ffe52e; border: 3px solid #111; box-shadow: 5px 5px 0 #ff4ba4;
+  font-family: var(--font); font-size: 13px; font-weight: 900; letter-spacing: 3px; text-align: center;
+  transform: rotate(3deg);
+}
+/* chunky, colorful title panel */
+body[data-theme="stacy"] .topbar { gap: 1rem; padding: .9rem 1rem 1.1rem; }
+body[data-theme="stacy"] .room-title {
+  position: relative; padding: .9rem 1.1rem; color: #111; background: var(--pink);
+  border: 4px solid #111; box-shadow: 9px 9px 0 #ffe52e;
+  font-size: clamp(1.15rem, 4.5vw, 1.8rem); font-weight: 900; line-height: 1.2; letter-spacing: 1px;
+  text-align: center; text-transform: uppercase; transform: rotate(-1deg);
+}
+/* memphis stripes above the title */
+body[data-theme="stacy"] .room-title::before {
+  content: "\25E2  \25CF  \2571\2572  \25A0  \25CF  \25E3"; display: block; margin-bottom: .5rem;
+  color: #fff; font-size: 1rem; letter-spacing: 5px; text-shadow: 2px 2px 0 #111;
+}
+/* sticker-style status bits on top of the busy pattern */
+body[data-theme="stacy"] .conn { color: #111; background: var(--panel); border: 3px solid #111; padding: .2rem .5rem; font-weight: 700; }
+body[data-theme="stacy"] .conn .dot { border-radius: 0; }
+body[data-theme="stacy"] .youare { color: #111; background: var(--panel); border: 3px solid #111; box-shadow: 4px 4px 0 #111; padding: .3rem .7rem; }
+body[data-theme="stacy"] .youare small { color: var(--muted); }
+body[data-theme="stacy"] .switch { color: #111; background: #ffe52e; border: 3px solid #111; border-radius: 0; box-shadow: 4px 4px 0 var(--pink);
+  font-weight: 900; text-transform: uppercase; }
+body[data-theme="stacy"] .switch:hover, body[data-theme="stacy"] .switch:focus-visible { color: #111; background: var(--pink); }
+body[data-theme="stacy"] .sidetoggle { color: #111; background: #ffe52e; border: 3px solid #111; border-radius: 0; box-shadow: 3px 3px 0 var(--pink); }
+/* small footer labels, like printed design stickers */
+body[data-theme="stacy"] .badge { color: #111; background: #ffe52e; border: 3px solid #111; box-shadow: 4px 4px 0 var(--pink); padding: .2rem .6rem;
+  font-family: var(--mono); font-size: .72rem; font-weight: 700; letter-spacing: 1px; transform: rotate(1deg); }
+body[data-theme="stacy"] .archive-note { color: #111; font-family: var(--mono); font-weight: 700; }
+/* bright panels with deliberately clashing colors */
+body[data-theme="stacy"] .side { padding: 0 .5rem .5rem 0; }
+body[data-theme="stacy"] .card, body[data-theme="stacy"] .chat { color: #111; border: 4px solid #111; box-shadow: 8px 8px 0 var(--pink); }
+body[data-theme="stacy"] .card { background: var(--panel); }
+body[data-theme="stacy"] .side .card:nth-child(even) { background: #ffe52e; box-shadow: 8px 8px 0 #111; }
+body[data-theme="stacy"] .side .card:nth-child(3n) { background: #ff9bc8; box-shadow: 8px 8px 0 #00a8cc; }
+body[data-theme="stacy"] .card h3 { color: #ed2587; font-size: .8rem; font-weight: 900; letter-spacing: .14em; }
+body[data-theme="stacy"] .card h3::before { content: "\3030  \25CF  \25B2  "; letter-spacing: 3px; }
+body[data-theme="stacy"] .roster .pstate { color: #111; opacity: .7; }
+body[data-theme="stacy"] .roster li.active .pdot { color: #0a9a2a; }
+body[data-theme="stacy"] .roster li.archived { opacity: .55; }
+body[data-theme="stacy"] .chip { background: #fff; border: 2px solid #111; }
+/* chat window */
+body[data-theme="stacy"] .chat { background: var(--chat-bg); box-shadow: 8px 8px 0 #ffe52e; }
+body[data-theme="stacy"] .intro { margin: .7rem .8rem 0; color: #111; background: #ffe52e; border: 3px solid #111; box-shadow: 5px 5px 0 var(--pink);
+  font-weight: 900; letter-spacing: .08em; }
+body[data-theme="stacy"] .messages { gap: .9rem; padding: 1rem 1.2rem; }
+/* messages = alternating pop-art panels */
+body[data-theme="stacy"] .msg { color: #111; background: var(--msg-bg); border: 3px solid #111; box-shadow: 5px 5px 0 var(--pink); }
+body[data-theme="stacy"] .msg.mine { background: var(--msg-own-bg); box-shadow: 5px 5px 0 #111; }
+body[data-theme="stacy"] .msg:nth-child(3n) { background: #ff9bc8; box-shadow: 5px 5px 0 #00a8cc; }
+body[data-theme="stacy"] .msg:nth-child(even):not(.mine) { background: #ffe52e; box-shadow: 5px 5px 0 #111; }
+body[data-theme="stacy"] .msg.mine:nth-child(n) { background: var(--msg-own-bg); }
+/* decorative pattern at the start of each message */
+body[data-theme="stacy"] .msg::before { content: "\3030  \25CF  \25B2  \25CF  \3030"; display: block; margin-bottom: .2rem;
+  color: #ed2587; font-size: .8rem; font-weight: 700; letter-spacing: 4px; }
+body[data-theme="stacy"] .msg .meta { color: #333; }
+body[data-theme="stacy"] .msg .name { padding: 0 .4rem; background: #111; font-weight: 900; text-transform: uppercase; }
+body[data-theme="stacy"] .msg .time { font-family: var(--mono); }
+/* composer */
+body[data-theme="stacy"] .composer { border-top: 4px solid #111; }
+body[data-theme="stacy"] .composer .prompt { color: #ed2587; font-weight: 900; }
+body[data-theme="stacy"] .composer textarea { color: #111; border: 3px solid #111; border-radius: 0; }
+body[data-theme="stacy"] .composer textarea:focus { outline: 3px solid #d934a2; outline-offset: 2px; }
+body[data-theme="stacy"] .composer button { color: #111; background: var(--pink); border: 3px solid #111; border-radius: 0; box-shadow: 4px 4px 0 #111;
+  font-weight: 900; text-transform: uppercase; letter-spacing: 1px; }
+body[data-theme="stacy"] .composer button:active:not(:disabled) { transform: translate(3px, 3px); box-shadow: 1px 1px 0 #111; }
+body[data-theme="stacy"] .composer-foot { color: #333; font-family: var(--mono); font-weight: 700; }
+/* responsive: preserve normal scrolling and text flow */
+@media (max-width: 600px) {
+  body[data-theme="stacy"] { background-attachment: scroll; }
+  body[data-theme="stacy"] .room-title { padding: .7rem .8rem; }
+  body[data-theme="stacy"] .msg { max-width: 96%; padding: .45rem .7rem; }
+  body[data-theme="stacy"] .bg-layer::before { display: none; }
+}
+
+
+/* reactions: chunky Memphis stickers */
+body[data-theme="stacy"] .react { border: 2px solid #111; border-radius: 0; background: #ffe52e; color: #111; font-weight: 900; box-shadow: 3px 3px 0 #ff4ba4; transform: rotate(-2deg); }
+body[data-theme="stacy"] .react:nth-child(even) { transform: rotate(2deg); background: #7ff0ff; }
+body[data-theme="stacy"] .react.mine { background: #ff4ba4; color: #fff; box-shadow: 3px 3px 0 #111; }
+body[data-theme="stacy"] .react .emoji { font-size: 1.05rem; }
+body[data-theme="stacy"] .mention { background: #ffe52e; color: #111; border: 1px solid #111; }
+body[data-theme="stacy"] .roomtabs .tab { border: 2px solid #111; border-bottom: 0; border-radius: 0; background: #fff6dc; color: #111; font-weight: 900; }
+body[data-theme="stacy"] .roomtabs .tab.current { background: #ff4ba4; color: #fff; }
