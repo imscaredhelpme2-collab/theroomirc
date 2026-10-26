@@ -1,0 +1,16 @@
+{
+  "id": "classic",
+  "name": "Classic (dark)",
+  "description": "Clean dark chat. The base everything else builds on.",
+  "labels": {
+    "room_title": "{room}",
+    "roster_title": "Who's here",
+    "prompt": "›",
+    "placeholder": "Type a message…",
+    "send_label": "Send",
+    "intro": "",
+    "live_label": "connected",
+    "lost_label": "reconnecting…",
+    "badge": ""
+  }
+}
