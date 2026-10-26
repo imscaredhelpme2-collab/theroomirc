@@ -1,0 +1,49 @@
+/* ---------- 2d. TERMINAL / MAXWELL : 1980s CRT ---------- */
+body[data-theme="terminal"] {
+  --bg: #050805; --panel: #08100a; --text: #33ff66; --muted: #1fa045; --accent: #ffb000; --border: #1b5a2b;
+  --radius: 0; --msg-radius: 0; --msg-bg: transparent; --msg-own-bg: transparent; --input-bg: #020402;
+  --font: "VT323", "IBM Plex Mono", "Lucida Console", "Courier New", monospace;
+  --c-sophia: #ffb000; --c-dream: #e8e8e8; --c-lucy: #7a9a7a; --c-terminal: #33ff66; --c-melody: #9dffd0;
+  font-size: 18px; text-shadow: 0 0 4px rgba(51,255,102,.45);
+}
+body[data-theme="terminal"] .bg-layer {
+  z-index: 10;
+  background: repeating-linear-gradient(to bottom, rgba(0,0,0,0) 0 2px, rgba(0,0,0,.22) 3px),
+              radial-gradient(ellipse at center, transparent 55%, rgba(0,0,0,.7));
+  animation: flicker 6s infinite;
+}
+@keyframes flicker { 0%,100% { opacity: .95; } 47% { opacity: .85; } 50% { opacity: 1; } 52% { opacity: .88; } }
+body[data-theme="terminal"] .topbar, body[data-theme="terminal"] .side, body[data-theme="terminal"] .composer-foot,
+body[data-theme="terminal"] .switch, body[data-theme="terminal"] .composer button { text-transform: uppercase; }
+body[data-theme="terminal"] .card h3::before { content: "+-- "; }
+body[data-theme="terminal"] .card h3::after { content: " --+"; }
+body[data-theme="terminal"] .room-title { letter-spacing: .08em; color: var(--accent); }
+body[data-theme="terminal"] .room-title::after { content: "\2588"; margin-left: .3rem; animation: blink 1s steps(1) infinite; }
+body[data-theme="terminal"] .msg { display: flex; gap: .6rem; max-width: 100%; border: 0; border-left: 2px solid var(--border); padding: .1rem .6rem; align-self: stretch; }
+body[data-theme="terminal"] .msg .meta { flex: none; }
+body[data-theme="terminal"] .msg .time { order: -1; }
+body[data-theme="terminal"] .msg .name::before { content: "["; }
+body[data-theme="terminal"] .msg .name::after { content: "]>"; }
+body[data-theme="terminal"] .msg.mine { border-left-color: var(--accent); }
+body[data-theme="terminal"] .composer button { background: transparent; color: var(--accent); border: 1px solid var(--accent); }
+body[data-theme="terminal"] .composer textarea { text-transform: none; caret-color: var(--accent); }
+body[data-theme="terminal"] .diag div { white-space: pre; }
+body[data-theme="terminal"] .roster li.archived { opacity: .45; }
+
+
+/* reactions: bracketed console tags */
+body[data-theme="terminal"] .react { border: 0; border-radius: 0; background: transparent; color: var(--text); font-family: var(--font); text-transform: uppercase; padding: 0 .2rem; }
+body[data-theme="terminal"] .react::before { content: "["; color: var(--muted); }
+body[data-theme="terminal"] .react::after { content: "]"; color: var(--muted); }
+body[data-theme="terminal"] .react .emoji { filter: grayscale(1) sepia(1) hue-rotate(70deg) saturate(3); }
+body[data-theme="terminal"] .react.mine { color: var(--accent); text-shadow: 0 0 6px var(--accent); }
+body[data-theme="terminal"] .react.mine::before, body[data-theme="terminal"] .react.mine::after { color: var(--accent); }
+body[data-theme="terminal"] .mention { background: transparent; border-bottom: 1px solid var(--accent); color: var(--accent); }
+body[data-theme="terminal"] .roomtabs .tab { border-radius: 0; text-transform: uppercase; }
+body[data-theme="terminal"] .roomtabs .tab.current::before { content: "> "; }
+/* the terminal lays a message out as one row; quotes, pictures and reactions get their own line underneath */
+body[data-theme="terminal"] .msg { flex-wrap: wrap; }
+body[data-theme="terminal"] .msg .quote, body[data-theme="terminal"] .msg .img, body[data-theme="terminal"] .msg .reactions,
+body[data-theme="terminal"] .msg .msg-actions, body[data-theme="terminal"] .msg .msg-edit { flex-basis: 100%; }
+body[data-theme="terminal"] .msg .quote { border-left-color: var(--accent); background: transparent; }
+body[data-theme="terminal"] .msg .quote .qname::after { content: ":"; }

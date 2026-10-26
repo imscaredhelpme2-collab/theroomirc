@@ -1,0 +1,17 @@
+{
+  "id": "terminal",
+  "name": "Maxwell (1980s CRT)",
+  "description": "Green phosphor terminal.",
+  "time_format": "24s",
+  "labels": {
+    "room_title": "COMM CHANNEL // UNKNOWN",
+    "roster_title": "PROCESS LIST",
+    "prompt": ">",
+    "placeholder": "ENTER MESSAGE",
+    "send_label": "TRANSMIT",
+    "intro": "UNKNOWN NETWORK TERMINAL DETECTED.",
+    "live_label": "LINK OK",
+    "lost_label": "LINK LOST",
+    "badge": "STATUS: ACTIVE"
+  }
+}
