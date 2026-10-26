@@ -1,0 +1,16 @@
+{
+  "id": "paper",
+  "name": "Paper (light)",
+  "description": "Soft light theme.",
+  "labels": {
+    "room_title": "{room}",
+    "roster_title": "Who's here",
+    "prompt": "›",
+    "placeholder": "Type a message…",
+    "send_label": "Send",
+    "intro": "",
+    "live_label": "connected",
+    "lost_label": "reconnecting…",
+    "badge": ""
+  }
+}

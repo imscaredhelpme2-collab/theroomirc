@@ -1,0 +1,12 @@
+/* paper: light theme, variables only */
+body[data-theme="paper"] {
+  --bg: #f4f1ea; --panel: #fffdf8; --text: #2b2a27; --muted: #8a8578; --accent: #b4532a;
+  --border: #ddd6c6; --msg-bg: #ffffff; --msg-own-bg: #f3e6d8; --input-bg: #ffffff;
+  --font: Georgia, "Times New Roman", serif;
+}
+body[data-theme="paper"] .composer button { color: #fff; }
+
+
+/* reactions: ink stamps */
+body[data-theme="paper"] .react { border: 1.5px solid var(--text); border-radius: 3px; background: transparent; font-family: Georgia, serif; transform: rotate(-1.5deg); }
+body[data-theme="paper"] .react.mine { background: var(--text); color: var(--bg); }
