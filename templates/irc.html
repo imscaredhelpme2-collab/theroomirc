@@ -1,0 +1,65 @@
+{% extends "page.html" %}
+{% block title %}IRC connection{% endblock %}
+{% block bodyclass %}page-body{% endblock %}
+{% block content %}
+<div class="page-wrap irc-page">
+  <header class="page-head">
+    <h1>IRC connection</h1>
+    <nav>
+      <a href="{{ url_for('room') }}" id="backLink">← back to chat</a>
+      <a href="{{ url_for('settings_page') }}">appearance settings</a>
+      <a href="{{ url_for('logout') }}">log out</a>
+    </nav>
+  </header>
+
+  <p class="https-warn" id="httpWarn" hidden>You are on plain http: the IRC password you type here crosses your Wi-Fi unencrypted. Turn on HTTPS (see the README) before sharing the network.</p>
+
+  <section class="panel" id="statusPanel">
+    <h2>Status</h2>
+    <div class="irc-status"><span class="dot" id="stDot"></span><b id="stText">…</b></div>
+    <p class="hint" id="stDetail"></p>
+    <div class="irc-lines" id="stLines" aria-live="polite"></div>
+    <div class="row">
+      <button type="button" id="identifyBtn" class="ghost" hidden>Log in with NickServ (IDENTIFY)</button>
+      <button type="button" id="disconnectBtn" class="ghost" hidden>Disconnect</button>
+      <button type="button" id="reconnectBtn" class="ghost" hidden>Reconnect</button>
+    </div>
+  </section>
+
+  <section class="panel">
+    <h2>Your IRC account</h2>
+    <p class="hint">This is saved with your local chat account, so every device you sign in on shares it. Your password is stored encrypted on this machine and is only used to log in to the IRC server (with SASL when the server supports it).</p>
+    <form id="ircForm" autocomplete="off">
+      <div class="admin-settings">
+        <label>Server <input name="server" placeholder="irc.libera.chat" autocapitalize="none" required></label>
+        <label>Port <input name="port" type="number" min="1" max="65535" placeholder="6697"></label>
+        <label>Nick <input name="nick" maxlength="30" autocapitalize="none" required placeholder="your IRC nickname"></label>
+        <label>Account name <small>(only if different from your nick)</small> <input name="account" maxlength="40" autocapitalize="none"></label>
+        <label>Password <input name="password" type="password" autocomplete="new-password" placeholder=""></label>
+        <label>Real name <small>(optional)</small> <input name="realname" maxlength="50"></label>
+      </div>
+      <label class="check"><input type="checkbox" name="tls"> encrypted connection (TLS)</label>
+      <label class="check"><input type="checkbox" name="tls_verify"> check the server's certificate (leave on unless you run your own server)</label>
+      <label class="check"><input type="checkbox" name="use_sasl"> log in with SASL when I connect (needs a registered account and password)</label>
+      <label class="check"><input type="checkbox" name="autoconnect"> keep me connected automatically</label>
+      <div class="row"><button type="submit" id="saveBtn">Save &amp; connect</button><span id="saveMsg" role="status"></span></div>
+    </form>
+  </section>
+
+  <section class="panel">
+    <h2>No account on this network yet?</h2>
+    <details id="signupBox">
+      <summary>Sign up (Libera.Chat and other networks that use NickServ)</summary>
+      <p class="hint">1) Fill in the nick and the password you want above and press Save. 2) Enter your email here and press Sign up: the app connects as a guest and sends <code>REGISTER</code> to NickServ for you. 3) The network emails you a verification code: paste it below. 4) Press <b>Save &amp; connect</b> again with “log in with SASL” ticked. Your email is used for that one command and is not stored here.</p>
+      <div class="row"><input id="regEmail" type="email" placeholder="email address" maxlength="120" style="max-width:20rem"><button type="button" id="regBtn">Sign up</button><span id="regMsg" role="status"></span></div>
+      <div class="row"><input id="verifyCode" placeholder="verification code" maxlength="64" style="max-width:20rem" autocapitalize="none"><button type="button" id="verifyBtn" class="ghost">Verify</button><span id="verifyMsg" role="status"></span></div>
+      <p class="hint">Other networks may word things differently: the replies appear in the status box above, and you can also type commands such as <code>/ns help</code> in the chat window.</p>
+    </details>
+  </section>
+</div>
+{% endblock %}
+{% block scripts %}
+<script id="ircData" type="application/json">{{ data|tojson }}</script>
+<script src="{{ url_for('static', filename='js/common.js') }}"></script>
+<script src="{{ url_for('static', filename='js/irc.js') }}"></script>
+{% endblock %}

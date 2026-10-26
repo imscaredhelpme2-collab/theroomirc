@@ -1,0 +1,21 @@
+{% extends "page.html" %}
+{% block title %}Theme gallery{% endblock %}
+{% block bodyclass %}page-body{% endblock %}
+{% block content %}
+<div class="page-wrap">
+  <header class="page-head">
+    <h1>Theme gallery</h1>
+    <nav><a href="{{ url_for('room') }}">← back to the room</a> <a href="{{ url_for('settings_page') }}">my settings</a> <a href="{{ url_for('sandbox_page') }}">gimmick sandbox</a></nav>
+  </header>
+  <section class="panel">
+    <p class="hint">Looks other people on this network have published. “Try it” loads one into your settings preview; nothing changes until you press Save there. To share your own, use <b>Share this look</b> in <a href="{{ url_for('settings_page') }}">settings</a>.</p>
+    <div id="galleryList" class="gallery"></div>
+    <p class="hint" id="galleryEmpty" hidden>Nothing here yet. Be the first to publish one.</p>
+  </section>
+</div>
+{% endblock %}
+{% block scripts %}
+<script id="galleryMe" type="application/json">{"admin": {{ "true" if user.is_admin else "false" }}}</script>
+<script src="{{ url_for('static', filename='js/common.js') }}"></script>
+<script src="{{ url_for('static', filename='js/gallery.js') }}"></script>
+{% endblock %}

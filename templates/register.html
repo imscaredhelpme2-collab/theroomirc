@@ -1,0 +1,27 @@
+{% extends "page.html" %}
+{% block title %}...{% endblock %}
+{% block content %}
+<main class="login-card wide">
+  <h1>NEW HERE?</h1>
+  {% if closed %}
+    <p class="login-note">Sign-ups are closed right now. Ask the admin.</p>
+  {% else %}
+  <form method="post" action="{{ url_for('register') }}">
+    <input type="hidden" name="csrf" value="{{ csrf_token() }}">
+    <input name="username" placeholder="username (3-20: letters, numbers, _ . -)" value="{{ form.get('username','') }}" autocomplete="username" autocapitalize="none" required autofocus>
+    <input name="display_name" placeholder="display name (what others see)" value="{{ form.get('display_name','') }}" maxlength="24">
+    <input name="password" type="password" placeholder="password" autocomplete="new-password" required>
+    <input name="confirm" type="password" placeholder="repeat password" autocomplete="new-password" required>
+    {% if invite_needed %}<input name="invite" placeholder="invite code" required>{% endif %}
+    <label class="field-label" for="preset">Start with a look</label>
+    <select id="preset" name="preset">
+      {% for p in presets %}<option value="{{ p.id }}" {{ 'selected' if p.id == form.get('preset', 'classic') }}>{{ p.name }} — {{ p.description }}</option>{% endfor %}
+    </select>
+    <label class="check"><input type="checkbox" name="customize"> open appearance settings next</label>
+    <button type="submit">CREATE ACCOUNT</button>
+  </form>
+  {% endif %}
+  {% if error %}<p class="login-error" role="alert">{{ error }}</p>{% endif %}
+  <p class="login-alt"><a href="{{ url_for('login') }}">I already have an account</a></p>
+</main>
+{% endblock %}
