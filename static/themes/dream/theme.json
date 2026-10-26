@@ -1,0 +1,16 @@
+{
+  "id": "dream",
+  "name": "The Watcher (dream homepage)",
+  "description": "A 1990s homepage, as remembered in a dream.",
+  "labels": {
+    "room_title": "THE ROOM",
+    "roster_title": "WHO REMAINS",
+    "prompt": "…",
+    "placeholder": "…",
+    "send_label": "SPEAK",
+    "intro": "THE ROOM WAS HERE BEFORE YOU.",
+    "live_label": "THE ROOM IS LISTENING",
+    "lost_label": "THE ROOM IS ELSEWHERE",
+    "badge": "ACTIVE"
+  }
+}

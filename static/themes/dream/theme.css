@@ -1,0 +1,91 @@
+/* ---------- 2b. A WEIRD DREAM... / THE WATCHER : 1990s homepage, as remembered in a dream ---------- */
+body[data-theme="dream"] {
+  --bg: #7fa8ee; --panel: #d4d0e8; --text: #15154a; --muted: #55557f; --accent: #5b21d6; --border: #808098;
+  --radius: 0; --msg-radius: 0; --msg-bg: #fffff2; --msg-own-bg: #e6f2ff; --input-bg: #ffffff; --chat-bg: #fdfbff;
+  --font: "Times New Roman", Times, serif;
+  --ui: Tahoma, Verdana, "MS Sans Serif", Arial, sans-serif;
+  --pixel: "Comic Sans MS", "Chalkboard SE", "Comic Neue", cursive;
+  --c-sophia: #c2185b; --c-dream: #4527c8; --c-lucy: #1f6a86; --c-terminal: #0a7a3a; --c-melody: #087a66;
+  background-color: #6f9cf0;
+  background-image:
+    radial-gradient(ellipse 70px 24px at 30px 40px, rgba(255,255,255,.95) 60%, transparent 64%),
+    radial-gradient(ellipse 46px 18px at 78px 28px, rgba(255,255,255,.95) 60%, transparent 64%),
+    radial-gradient(ellipse 54px 20px at 56px 52px, rgba(255,255,255,.95) 60%, transparent 64%),
+    linear-gradient(180deg, #4f86e8 0%, #8fb8f5 55%, #cfe3ff 100%);
+  background-size: 340px 230px, 340px 230px, 340px 230px, 100% 100%;
+  background-repeat: repeat, repeat, repeat, no-repeat;
+  animation: skyDrift 160s linear infinite;
+}
+@keyframes skyDrift { to { background-position: 340px 0, 340px 0, 340px 0, 0 0; } }
+body[data-theme="dream"] .bg-layer { background: none; }
+/* marquee ticker + construction strip */
+body[data-theme="dream"] .dream-ticker { display: block; overflow: hidden; white-space: nowrap; background: #000080; color: #ffff66;
+  font-family: "Courier New", monospace; font-size: .85rem; padding: .2rem 0; border-bottom: 2px solid #fff; }
+body[data-theme="dream"] .dream-ticker span { display: inline-block; padding-left: 100%; animation: ticker 48s linear infinite; }
+body[data-theme="dream"] .dream-construction { display: block; text-align: center; font-family: var(--ui); font-weight: 700; font-size: .72rem;
+  letter-spacing: .08em; color: #111; padding: .22rem .5rem;
+  background: repeating-linear-gradient(45deg, #ffd800 0 12px, #1a1a1a 12px 24px); }
+body[data-theme="dream"] .dream-construction b, body[data-theme="dream"] .dream-construction i { background: #ffd800; padding: .05rem .6rem; border: 1px solid #111; font-style: normal; }
+/* win95-style chrome */
+body[data-theme="dream"] .app { font-family: var(--font); }
+body[data-theme="dream"] .topbar { background: #d4d0e8; margin: .6rem .8rem; border: 2px solid; border-color: #fff #404058 #404058 #fff;
+  box-shadow: inset -1px -1px #808098, inset 1px 1px #ececff; }
+body[data-theme="dream"] .room-title { font-family: var(--pixel); font-style: italic; font-weight: 700; font-size: 1.7rem; letter-spacing: .06em;
+  background: linear-gradient(90deg, #ff00cc, #5b21ff, #00b7ff, #00c853, #ffb300, #ff5722); -webkit-background-clip: text; background-clip: text;
+  color: transparent; filter: drop-shadow(2px 2px 0 #fff); }
+body[data-theme="dream"] .room-title.glitch { filter: drop-shadow(3px 0 #ff00cc) drop-shadow(-3px 0 #00e5ff); transform: translateX(2px); }
+body[data-theme="dream"] .conn { font-family: var(--ui); color: var(--muted); }
+body[data-theme="dream"] .conn .dot { border-radius: 0; animation: blink 1.2s steps(1) infinite; }
+body[data-theme="dream"] .youare { font-family: var(--ui); color: var(--text); }
+body[data-theme="dream"] .youare small { color: var(--muted); letter-spacing: .1em; }
+body[data-theme="dream"] .badge { color: #b00020; font-weight: 700; }
+body[data-theme="dream"] .switch { font-family: var(--font); color: #0000ee; text-decoration: underline; border: 0; letter-spacing: 0; font-size: .9rem; }
+body[data-theme="dream"] .switch:visited { color: #551a8b; }
+body[data-theme="dream"] .sidetoggle { border-radius: 0; background: #d4d0e8; color: #000; border: 2px outset #fff; }
+body[data-theme="dream"] .card, body[data-theme="dream"] .chat { background: #d4d0e8; border: 2px solid; border-color: #fff #404058 #404058 #fff;
+  box-shadow: inset -1px -1px #808098, inset 1px 1px #ececff; color: var(--text); }
+body[data-theme="dream"] .card { padding: 0 .8rem .8rem; }
+body[data-theme="dream"] .card h3 { display: flex; justify-content: space-between; align-items: center; margin: 0 -.8rem .6rem; padding: .22rem .5rem;
+  font-family: var(--ui); font-size: .78rem; font-weight: 700; letter-spacing: 0; text-transform: none; color: #fff;
+  background: linear-gradient(90deg, #000080, #1084d0); }
+body[data-theme="dream"] .card h3::after { content: "_ \25A1 \2715"; letter-spacing: .25em; font-size: .7rem; }
+body[data-theme="dream"] .roster li, body[data-theme="dream"] .plain li { font-family: var(--font); }
+body[data-theme="dream"] .roster .pstate { font-family: var(--ui); color: var(--muted); }
+body[data-theme="dream"] .roster li.active .pdot { color: #0a9a2a; }
+body[data-theme="dream"] .plain li { color: #0000ee; text-decoration: underline; cursor: default; }
+body[data-theme="dream"] .plain em { color: #b00020; font-style: normal; font-family: "Courier New", monospace; font-size: .8rem; text-decoration: none; }
+body[data-theme="dream"] .dreamdate { font-family: "Courier New", monospace; font-size: .78rem; color: var(--muted); margin: .6rem 0 0; }
+body[data-theme="dream"] .dreamdate span { color: #b00020; }
+/* hit counter + webring */
+body[data-theme="dream"] .ring { margin: 0; font-family: var(--ui); font-size: .8rem; color: #0000ee; text-decoration: underline; }
+/* chat window */
+body[data-theme="dream"] .chat { padding: 0; }
+body[data-theme="dream"] .messages { background: #fdfbff repeating-conic-gradient(#f1e8ff 0 25%, #ffffff 0 50%) 0 0 / 28px 28px;
+  border: 2px inset #808098; margin: .5rem; }
+body[data-theme="dream"] .msg { background: var(--msg-bg); border: 2px solid; border-color: #808098 #fff #fff #808098; color: var(--text); }
+body[data-theme="dream"] .msg.mine { background: var(--msg-own-bg); }
+body[data-theme="dream"] .msg:nth-child(5n+2) { transform: translateX(4px); }
+body[data-theme="dream"] .msg .meta { font-family: var(--ui); color: var(--muted); }
+body[data-theme="dream"] .msg .name { font-family: var(--pixel); letter-spacing: 0; }
+body[data-theme="dream"] .msg .time { font-family: "Courier New", monospace; }
+body[data-theme="dream"] .intro { align-self: center; width: min(92%, 440px); margin: .6rem auto 0; padding: 0 0 .6rem; text-align: left; letter-spacing: 0;
+  font-family: var(--ui); color: #000; background: #d4d0e8; border: 2px solid; border-color: #fff #404058 #404058 #fff; }
+body[data-theme="dream"] .intro::before { content: "\26A0  Message from the Room"; display: block; margin: 0 0 .5rem; padding: .22rem .5rem; color: #fff;
+  font-size: .78rem; font-weight: 700; background: linear-gradient(90deg, #000080, #1084d0); }
+body[data-theme="dream"] .intro { padding-left: .7rem; padding-right: .7rem; }
+body[data-theme="dream"] .intro::before { margin-left: -.7rem; margin-right: -.7rem; }
+body[data-theme="dream"] .composer { border-top: 0; padding-top: .3rem; }
+body[data-theme="dream"] .composer .prompt { color: #5b21d6; font-weight: 700; }
+body[data-theme="dream"] .composer textarea { border-radius: 0; border: 2px inset #808098; font-family: "Courier New", monospace; color: #000; }
+body[data-theme="dream"] .composer textarea:focus { outline: 1px dotted #000; outline-offset: -4px; }
+body[data-theme="dream"] .composer button { border-radius: 0; color: #000; background: #d4d0e8; font-family: var(--ui); font-size: .85rem;
+  border: 2px solid; border-color: #fff #404058 #404058 #fff; box-shadow: inset -1px -1px #808098; }
+body[data-theme="dream"] .composer button:active:not(:disabled) { border-color: #404058 #fff #fff #404058; }
+body[data-theme="dream"] .composer-foot { font-family: var(--ui); }
+@media (max-width: 820px) { body[data-theme="dream"] .dream-construction { display: none; } }
+
+
+/* reactions: 1990s beveled buttons */
+body[data-theme="dream"] .react { border: 2px outset #c8c8ff; border-radius: 0; background: #e8e8ff; color: #000080; font-family: "Courier New", monospace; }
+body[data-theme="dream"] .react.mine { border-style: inset; background: #ffff99; }
+body[data-theme="dream"] .mention { background: #000080; color: #ffff66; }
