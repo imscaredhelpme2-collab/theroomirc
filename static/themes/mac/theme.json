@@ -1,0 +1,16 @@
+{
+  "id": "mac",
+  "name": "Computer/User (System 1.0)",
+  "description": "Macintosh System Software, January 1984. 1-bit.",
+  "labels": {
+    "room_title": "System Software 1",
+    "roster_title": "Available Programs...",
+    "prompt": "■",
+    "placeholder": "Think before talking, please.",
+    "send_label": "Innovate",
+    "intro": "There's no place like home.",
+    "live_label": "Linked",
+    "lost_label": "Error in link",
+    "badge": "Always Watching!"
+  }
+}

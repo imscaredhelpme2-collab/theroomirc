@@ -1,0 +1,115 @@
+/* ---------- 2h. MAC : Macintosh System Software 1.0, January 1984. 1-bit, black and white only ---------- */
+body[data-theme="mac"] {
+  --bg: #ffffff; --panel: #ffffff; --text: #000000; --muted: #000000; --accent: #000000;
+  --border: #000000; --radius: 0; --msg-radius: 0;
+  --msg-bg: #ffffff; --msg-own-bg: #ffffff; --input-bg: #ffffff; --chat-bg: #ffffff;
+  --chicago: "Chicago", "ChicagoFLF", "Charcoal", "Geneva", "Verdana", sans-serif;
+  --font: "Geneva", "Verdana", "Tahoma", sans-serif;
+  --mono: "Monaco", "Lucida Console", "Courier New", monospace;
+  --c-sophia: #000; --c-dream: #000; --c-lucy: #000; --c-terminal: #000; --c-melody: #000; --c-mac: #000;
+  font-size: 14px; line-height: 1.35; cursor: default; text-shadow: none;
+  -webkit-font-smoothing: none; font-smooth: never;
+  /* the desktop: a 50% gray dither made of 2px black and white squares */
+  background: repeating-conic-gradient(#000 0 25%, #fff 0 50%) 0 0 / 4px 4px;
+}
+body[data-theme="mac"] ::selection { background: #000; color: #fff; }
+body[data-theme="mac"] .app { padding-top: 24px; }
+/* menu bar + rounded black screen corners */
+body[data-theme="mac"] .bg-layer { z-index: 10; }
+body[data-theme="mac"] .bg-layer::before {
+  content: "File      Edit      View      Label      Special"; white-space: pre;
+  position: absolute; top: 0; left: 0; right: 0; height: 21px; padding-left: 28px; line-height: 20px;
+  color: #000; background: #fff; border-bottom: 1px solid #000;
+  font-family: var(--chicago); font-size: 12px; font-weight: 700;
+}
+body[data-theme="mac"] .bg-layer::after {
+  content: ""; position: absolute; inset: 0;
+  background:
+    radial-gradient(circle at 100% 100%, transparent 7px, #000 7.5px) top left / 9px 9px no-repeat,
+    radial-gradient(circle at 0 100%, transparent 7px, #000 7.5px) top right / 9px 9px no-repeat,
+    radial-gradient(circle at 100% 0, transparent 7px, #000 7.5px) bottom left / 9px 9px no-repeat,
+    radial-gradient(circle at 0 0, transparent 7px, #000 7.5px) bottom right / 9px 9px no-repeat;
+}
+/* the title block is a plain window */
+body[data-theme="mac"] .topbar { margin: .6rem .8rem .7rem; padding: .5rem .9rem; gap: 1rem; background: #fff; border: 1px solid #000; box-shadow: 2px 2px 0 #000; }
+body[data-theme="mac"] .room-title { color: #000; font-family: var(--chicago); font-size: 1.15rem; font-weight: 700; letter-spacing: 0; }
+body[data-theme="mac"] .conn { color: #000; font-family: var(--mono); font-size: 11px; }
+body[data-theme="mac"] .conn .dot { width: .6rem; height: .6rem; border: 1px solid #000; border-radius: 50%; background: #000; }
+body[data-theme="mac"] .conn.bad .dot { background: #fff; }
+body[data-theme="mac"] .youare { color: #000; }
+body[data-theme="mac"] .youare small { color: #000; letter-spacing: 0; font-family: var(--mono); font-size: 10px; }
+body[data-theme="mac"] .youare strong { font-family: var(--chicago); letter-spacing: 0; }
+body[data-theme="mac"] .badge { margin-top: .2rem; padding: 0 .4rem; color: #000; background: #fff; border: 1px solid #000; font-family: var(--mono); font-size: 10px; letter-spacing: 0; }
+/* push buttons: rounded rectangles that invert when pressed */
+body[data-theme="mac"] .switch, body[data-theme="mac"] .sidetoggle { color: #000; background: #fff; border: 1px solid #000; border-radius: 8px;
+  padding: .2rem .9rem; font-family: var(--chicago); font-size: 12px; letter-spacing: 0; text-transform: none; }
+body[data-theme="mac"] .switch:hover, body[data-theme="mac"] .switch:focus-visible, body[data-theme="mac"] .sidetoggle:active { color: #fff; background: #000; border-color: #000; }
+/* side windows: striped title bar with a close box */
+body[data-theme="mac"] .side { padding: 0 3px 3px 0; gap: .9rem; }
+body[data-theme="mac"] .card { color: #000; background: #fff; border: 1px solid #000; box-shadow: 2px 2px 0 #000; }
+body[data-theme="mac"] .card h3 {
+  display: flex; align-items: center; gap: 6px; height: 19px; margin: -.8rem -.8rem .6rem; padding: 0 6px 0 24px;
+  color: #000; border-bottom: 1px solid #000; font-family: var(--chicago); font-size: 12px; font-weight: 700; letter-spacing: 0; text-transform: none;
+  background:
+    linear-gradient(#fff, #fff) 7px 50% / 9px 9px no-repeat,
+    linear-gradient(#000, #000) 6px 50% / 11px 11px no-repeat,
+    #fff;
+}
+body[data-theme="mac"] .card h3::before, body[data-theme="mac"] .card h3::after {
+  content: ""; flex: 1; height: 13px; background: repeating-linear-gradient(0deg, #000 0 1px, #fff 1px 3px);
+}
+body[data-theme="mac"] .card h3::after { flex: 0 0 0; }
+body[data-theme="mac"] .roster .pstate { color: #000; font-family: var(--mono); font-size: 10px; letter-spacing: 0; }
+body[data-theme="mac"] .roster li.active .pdot { color: #000; }
+body[data-theme="mac"] .roster li.archived { opacity: 1; font-style: italic; }
+body[data-theme="mac"] .roster li.you .pname { font-weight: 700; }
+body[data-theme="mac"] .chip { background: #fff; border: 1px solid #000; border-radius: 0; }
+/* the chat is the main document window */
+body[data-theme="mac"] .chat { color: #000; background: #fff; border: 1px solid #000; box-shadow: 2px 2px 0 #000; }
+body[data-theme="mac"] .chat::before {
+  content: "Chat"; flex: none; height: 20px; line-height: 19px; text-align: center; color: #000; border-bottom: 1px solid #000;
+  font-family: var(--chicago); font-size: 12px; font-weight: 700;
+  background:
+    linear-gradient(#fff, #fff) 50% 0 / 9ch 100% no-repeat,
+    linear-gradient(#fff, #fff) 11px 50% / 9px 9px no-repeat,
+    linear-gradient(#000, #000) 10px 50% / 11px 11px no-repeat,
+    repeating-linear-gradient(0deg, #000 0 1px, #fff 1px 3px) 0 3px / 100% 13px no-repeat,
+    #fff;
+}
+/* alert-box look for the room message */
+body[data-theme="mac"] .intro { margin: .7rem auto 0; width: min(92%, 460px); padding: .5rem .8rem; color: #000; background: #fff; border: 3px double #000;
+  font-family: var(--chicago); font-size: 12px; font-weight: 700; letter-spacing: 0; }
+body[data-theme="mac"] .messages { gap: .7rem; background: #fff; }
+body[data-theme="mac"] .msg { color: #000; background: #fff; border: 1px solid #000; box-shadow: 1px 1px 0 #000; animation: none; }
+body[data-theme="mac"] .msg.mine { border-width: 2px; box-shadow: 3px 3px 0 #000; }
+body[data-theme="mac"] .msg .meta { color: #000; font-family: var(--mono); font-size: 10px; }
+body[data-theme="mac"] .msg .name { font-family: var(--chicago); font-size: 12px; font-weight: 700; letter-spacing: 0; }
+body[data-theme="mac"] .msg .text { font-family: var(--font); }
+/* composer */
+body[data-theme="mac"] .composer { padding-bottom: .5rem; border-top: 1px solid #000; }
+body[data-theme="mac"] .composer .prompt { color: #000; font-family: var(--mono); }
+body[data-theme="mac"] .composer textarea { color: #000; font-family: var(--font); font-size: 13px; border: 1px solid #000; border-radius: 0; caret-color: #000; }
+body[data-theme="mac"] .composer textarea:focus { outline: 2px solid #000; outline-offset: 1px; }
+/* default button: thick ring around it */
+body[data-theme="mac"] .composer button { margin: 0 4px 0 2px; padding: .3rem 1rem; color: #000; background: #fff; border: 1px solid #000; border-radius: 8px;
+  box-shadow: 0 0 0 2px #fff, 0 0 0 4px #000; font-family: var(--chicago); font-size: 12px; font-weight: 700; }
+body[data-theme="mac"] .composer button:active:not(:disabled) { color: #fff; background: #000; }
+body[data-theme="mac"] .composer-foot { color: #000; font-family: var(--mono); font-size: 10px; }
+body[data-theme="mac"] .composer-foot .err { color: #000; font-weight: 700; text-decoration: underline; }
+body[data-theme="mac"] .archive-note { color: #000; font-family: var(--chicago); letter-spacing: 0; }
+/* scroll bars: dithered track, white thumb, boxed arrows */
+body[data-theme="mac"] ::-webkit-scrollbar { width: 16px; height: 16px; }
+body[data-theme="mac"] ::-webkit-scrollbar-track { background: repeating-conic-gradient(#000 0 25%, #fff 0 50%) 0 0 / 4px 4px; border-left: 1px solid #000; }
+body[data-theme="mac"] ::-webkit-scrollbar-thumb { background: #fff; border: 1px solid #000; }
+body[data-theme="mac"] ::-webkit-scrollbar-button:single-button { display: block; height: 16px; background: #fff; border: 1px solid #000; }
+@media (max-width: 600px) {
+  body[data-theme="mac"] .bg-layer::before { padding-left: 14px; }
+  body[data-theme="mac"] .topbar { margin: .5rem .5rem .6rem; }
+  body[data-theme="mac"] .msg { max-width: 96%; }
+}
+
+
+/* reactions: Platinum push-buttons */
+body[data-theme="mac"] .react { border: 1px solid #000; border-radius: 4px; color: #000; background: linear-gradient(#fff, #cfcfcf); box-shadow: 1px 1px 0 #000; font-family: inherit; }
+body[data-theme="mac"] .react.mine { background: linear-gradient(#a8a8a8, #d8d8d8); box-shadow: inset 1px 1px 0 #666; }
+body[data-theme="mac"] .mention { background: #000; color: #fff; }
