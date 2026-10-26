@@ -1,0 +1,23 @@
+/* irc.css -- the extra pieces an IRC client needs. Uses the theme's own variables, so every theme still applies. */
+.msg.system { font-size: .8rem; color: var(--muted); }
+.msg.system.kind-error { color: #e88; }
+.msg.system.kind-server, .msg.system.kind-topic, .msg.system.kind-mode { opacity: .9; }
+.msg.system.kind-join, .msg.system.kind-part, .msg.system.kind-quit, .msg.system.kind-nick, .msg.system.kind-kick { opacity: .6; font-size: .74rem; }
+.hide-joins .msg.system.kind-join, .hide-joins .msg.system.kind-part, .hide-joins .msg.system.kind-quit, .hide-joins .msg.system.kind-nick { display: none; }
+.msg.kind-action .text { font-style: italic; }
+.msg.kind-notice .text { opacity: .9; }
+.msg .text a { color: var(--accent); overflow-wrap: anywhere; }
+.msg .text .mention.me { font-weight: 700; }
+.topicbar, #motd { overflow-wrap: anywhere; }
+.roster li .pprefix { display: inline-block; width: 1em; text-align: center; color: var(--accent); font-weight: 700; }
+.roster li.away .pname { opacity: .55; }
+.roster .rostercount { font-weight: 400; letter-spacing: 0; text-transform: none; opacity: .8; }
+.roster .rosterempty { color: var(--muted); font-size: .8rem; padding: .3rem 0; }
+.roomtabs .tab .tabclose { margin-left: .2rem; opacity: .55; padding: 0 .2rem; border: 0; background: none; color: inherit; font: inherit; cursor: pointer; }
+.roomtabs .tab .tabclose:hover { opacity: 1; }
+.roomtabs .tab.parted { opacity: .55; }
+.roomtabs .addtab { flex: none; font: inherit; font-size: .9rem; padding: .3rem .7rem; cursor: pointer; background: transparent; color: var(--muted); border: 1px dashed var(--border); }
+.roomtabs .addtab:hover { color: var(--text); }
+.switch[aria-pressed="true"] { border-color: var(--accent); color: var(--accent); }
+.conn.warn .dot { background: #e9a23b; }
+.msg.mine .quote, .msg .quote { cursor: pointer; }
