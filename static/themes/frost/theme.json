@@ -1,0 +1,16 @@
+{
+  "id": "frost",
+  "name": "Frost (winter holidays)",
+  "description": "Icy blues, falling snow and warm lamp-light. Made for a winter event.",
+  "labels": {
+    "room_title": "❄ The Winter Lodge ❄",
+    "roster_title": "By the fire",
+    "prompt": "❄",
+    "placeholder": "Say something warm…",
+    "send_label": "Send ❄",
+    "intro": "Come in from the cold.",
+    "live_label": "The fire is lit",
+    "lost_label": "The fire is low…",
+    "badge": "Wrapped up warm"
+  }
+}

@@ -1,0 +1,15 @@
+/* ---------- FROST : winter holidays event theme ---------- */
+body[data-theme="frost"] {
+  --bg: #0c1a2b; --panel: #12263d; --text: #eaf6ff; --muted: #8fb4d1; --accent: #7fd3ff; --border: #2b4d70;
+  --radius: 12px; --msg-radius: 16px; --msg-bg: #17304d; --msg-own-bg: #1f4469; --input-bg: #0e2036; --chat-bg: #12263d;
+  background: linear-gradient(180deg, #0c1a2b, #16385c 130%) fixed;
+}
+body[data-theme="frost"] .room-title { color: #dff4ff; text-shadow: 0 0 14px rgba(127,211,255,.6); }
+body[data-theme="frost"] .bg-layer {
+  background-image: radial-gradient(circle, rgba(255,255,255,.9) 1.4px, transparent 2px), radial-gradient(circle, rgba(255,255,255,.55) 1px, transparent 1.6px);
+  background-size: 90px 90px, 47px 61px; animation: snowfall 14s linear infinite;
+}
+@keyframes snowfall { from { background-position: 0 -90px, 0 -61px; } to { background-position: 14px 0, -9px 0; } }
+body[data-theme="frost"] .composer button { color: #052033; }
+body[data-theme="frost"] .react { background: rgba(127,211,255,.12); border-color: rgba(127,211,255,.4); }
+body[data-theme="frost"] .react.mine { background: rgba(127,211,255,.32); box-shadow: 0 0 10px rgba(127,211,255,.55); }
