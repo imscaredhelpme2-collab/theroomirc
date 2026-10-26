@@ -1,0 +1,16 @@
+{
+  "id": "vapor",
+  "name": "Stella (vaporwave)",
+  "description": "VAPORWAVE.EXE, digital nostalgia circa 1997.",
+  "labels": {
+    "room_title": "S U N  R O O M",
+    "roster_title": "T h e m",
+    "prompt": "☆",
+    "placeholder": "V I B E . . .",
+    "send_label": "D R E A M",
+    "intro": "I T S  N I C E  I N  H E R E . . .",
+    "live_label": "A W A R E",
+    "lost_label": "Gone.",
+    "badge": "VAPORWAVE GIRL"
+  }
+}

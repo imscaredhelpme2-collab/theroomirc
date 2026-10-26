@@ -1,0 +1,96 @@
+/* ---------- 2g. VAPOR : VAPORWAVE.EXE, digital nostalgia circa 1997 ---------- */
+body[data-theme="vapor"] {
+  --bg: #100a2c; --panel: #17102f; --text: #d4fff9; --muted: #9fc8d8; --accent: #ff68d1;
+  --border: #48f5e6; --radius: 0; --msg-radius: 0;
+  --msg-bg: #17102f; --msg-own-bg: #261549; --input-bg: #0e0924; --chat-bg: #130c2a;
+  --font: "Courier New", monospace; --mono: "Courier New", monospace;
+  --neon-cyan: #48f5e6; --neon-pink: #ff68d1; --shadow-pink: #d83ba9;
+  --c-sophia: #ff9ee9; --c-dream: #b9b9ff; --c-lucy: #9fd8e6; --c-terminal: #44ff88; --c-melody: #70fff4; --c-vapor: #ff68d1;
+  line-height: 1.7; overflow-wrap: anywhere; color: #8ffff5;
+  background-color: #100a2c;
+  background-image:
+    radial-gradient(circle, #ff8ad8 1px, transparent 2px),
+    radial-gradient(circle, #70fff4 1px, transparent 2px),
+    linear-gradient(180deg, #17103e 0%, #34205d 40%, #8b286f 68%, #f04b9b 100%);
+  background-size: 29px 31px, 47px 43px, 100% 100%;
+  background-position: 0 0, 18px 13px, 0 0;
+  background-attachment: fixed;
+}
+/* sunset disc behind the page header */
+body[data-theme="vapor"] .bg-layer::before {
+  content: ""; position: absolute; top: 3.5rem; left: 50%; transform: translateX(-50%);
+  width: min(180px, 48vw); height: min(180px, 48vw); border-radius: 50%;
+  background: repeating-linear-gradient(to bottom, #ff9ce7 0 12px, #ff9ce7 12px 20px, #d94cae 20px 24px, #d94cae 24px 29px, transparent 29px 34px);
+  box-shadow: 0 0 32px rgba(255,67,202,.5);
+}
+/* perspective neon grid along the bottom */
+body[data-theme="vapor"] .bg-layer::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 130px;
+  background-image:
+    repeating-linear-gradient(90deg, transparent 0 35px, #29f7ee 36px 37px),
+    repeating-linear-gradient(0deg, transparent 0 17px, #29f7ee 18px 19px);
+  border-top: 2px solid #ff68d1; opacity: .55;
+  transform: perspective(160px) rotateX(25deg); transform-origin: top;
+}
+/* retro computer title */
+body[data-theme="vapor"] .topbar { gap: 1rem; padding: .9rem 1rem 1.1rem; }
+body[data-theme="vapor"] .room-title {
+  padding: .9rem 1.1rem; color: #ff9ee9; background: rgba(18,10,45,.92); border: 2px solid #ff68d1;
+  box-shadow: 6px 6px 0 #25f5e8, 0 0 18px #e839b7;
+  font-size: clamp(1.1rem, 4.5vw, 1.8rem); font-weight: 700; line-height: 1.3; letter-spacing: 3px;
+  text-align: center; text-transform: uppercase; text-shadow: 3px 3px 0 #542878;
+}
+body[data-theme="vapor"] .room-title::before {
+  content: "\2605  \FF36\FF21\FF30\FF2F\FF32  \2605"; display: block; margin-bottom: .5rem;
+  color: #70fff4; font-size: .75rem; letter-spacing: 4px; text-shadow: 2px 2px 0 #d930aa;
+}
+/* status bits */
+body[data-theme="vapor"] .conn { color: #8ffff5; }
+body[data-theme="vapor"] .conn .dot { border-radius: 0; box-shadow: 0 0 8px currentColor; }
+body[data-theme="vapor"] .youare { color: #d4fff9; text-shadow: 0 0 6px rgba(255,104,209,.5); }
+body[data-theme="vapor"] .youare small { color: #70fff4; }
+body[data-theme="vapor"] .switch { color: #ff9ee9; background: rgba(18,10,45,.85); border: 1px solid #ff68d1; border-radius: 0; text-transform: uppercase; }
+body[data-theme="vapor"] .switch:hover, body[data-theme="vapor"] .switch:focus-visible { color: #70fff4; border-color: #70fff4; box-shadow: 0 0 12px rgba(112,255,244,.5); }
+body[data-theme="vapor"] .sidetoggle { color: #ff9ee9; background: #17102f; border: 1px solid #ff68d1; border-radius: 0; }
+/* old-school computer status label */
+body[data-theme="vapor"] .badge { padding: .3rem .6rem; color: #ff9ee9; background: #17102f; border: 1px dashed #70fff4; font-size: .72rem; letter-spacing: 1px; }
+body[data-theme="vapor"] .archive-note { color: #ff9ee9; }
+/* panels resemble old terminal windows */
+body[data-theme="vapor"] .side { padding: 0 .5rem .5rem 0; }
+body[data-theme="vapor"] .card, body[data-theme="vapor"] .chat { color: #d4fff9; background: #17102f; border: 2px solid #48f5e6; box-shadow: 7px 7px 0 #d83ba9; }
+body[data-theme="vapor"] .chat { background: var(--chat-bg); }
+body[data-theme="vapor"] .card h3 { color: #ff9ee9; letter-spacing: .16em; }
+body[data-theme="vapor"] .card h3::before { content: "> "; color: #ff7ad9; font-weight: 700; }
+body[data-theme="vapor"] .roster .pstate { color: #70fff4; }
+body[data-theme="vapor"] .roster li.active .pdot { color: #29f7ee; text-shadow: 0 0 6px #29f7ee; }
+body[data-theme="vapor"] .chip { background: #261549; border: 1px solid #48f5e6; }
+/* chat window */
+body[data-theme="vapor"] .intro { margin: .7rem .8rem 0; color: #ff9ee9; background: #17102f; border: 1px dashed #70fff4; letter-spacing: .14em; text-shadow: 0 0 8px rgba(255,104,209,.6); }
+body[data-theme="vapor"] .messages { gap: .9rem; padding: 1rem 1.2rem; }
+body[data-theme="vapor"] .msg { color: #d4fff9; background: var(--msg-bg); border: 2px solid #48f5e6; box-shadow: 5px 5px 0 #d83ba9; }
+body[data-theme="vapor"] .msg.mine { background: var(--msg-own-bg); border-color: #ff68d1; box-shadow: 5px 5px 0 #25f5e8; }
+body[data-theme="vapor"] .msg .meta { color: #9fc8d8; }
+body[data-theme="vapor"] .msg .name { text-transform: uppercase; text-shadow: 0 0 6px currentColor; }
+body[data-theme="vapor"] .msg .text::before { content: "> "; color: #ff7ad9; font-weight: 700; }
+/* composer */
+body[data-theme="vapor"] .composer { border-top: 2px solid #ff68d1; }
+body[data-theme="vapor"] .composer .prompt { color: #ff7ad9; text-shadow: 0 0 6px #ff68d1; }
+body[data-theme="vapor"] .composer textarea { color: #d4fff9; border: 2px solid #48f5e6; border-radius: 0; caret-color: #ff68d1; }
+body[data-theme="vapor"] .composer textarea:focus { outline: 2px solid #ff68d1; outline-offset: 1px; box-shadow: 0 0 14px rgba(255,104,209,.45); }
+body[data-theme="vapor"] .composer button { color: #ff9ee9; background: #17102f; border: 2px solid #ff68d1; border-radius: 0; box-shadow: 4px 4px 0 #25f5e8;
+  text-transform: uppercase; letter-spacing: 2px; }
+body[data-theme="vapor"] .composer button:active:not(:disabled) { transform: translate(3px, 3px); box-shadow: 1px 1px 0 #25f5e8; }
+body[data-theme="vapor"] .composer-foot { color: #9fc8d8; }
+/* small-screen adjustments */
+@media (max-width: 600px) {
+  body[data-theme="vapor"] { background-attachment: scroll; }
+  body[data-theme="vapor"] .room-title { padding: .7rem .8rem; letter-spacing: 1px; }
+  body[data-theme="vapor"] .msg { max-width: 96%; padding: .45rem .7rem; }
+  body[data-theme="vapor"] .bg-layer::after { height: 90px; }
+}
+
+
+/* reactions: neon gradient pills */
+body[data-theme="vapor"] .react { border: 0; color: #fff; background: linear-gradient(90deg, #ff68d1, #7a5cff); box-shadow: 0 0 10px rgba(255,104,209,.55); }
+body[data-theme="vapor"] .react.mine { background: linear-gradient(90deg, #00e5ff, #ff68d1); box-shadow: 0 0 14px rgba(0,229,255,.8); }
+body[data-theme="vapor"] .mention { background: rgba(255,104,209,.3); }
