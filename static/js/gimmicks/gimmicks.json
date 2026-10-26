@@ -1,0 +1,52 @@
+[
+  {
+    "id": "status-chips",
+    "label": "Status chips",
+    "description": "Clock, battery level and a mood chip that reacts to the room."
+  },
+  {
+    "id": "glitch-title",
+    "label": "Glitchy title",
+    "description": "The room title glitches every so often."
+  },
+  {
+    "id": "retro-homepage",
+    "label": "1990s homepage",
+    "description": "Scrolling ticker, construction banner, visitor counter, room ring."
+  },
+  {
+    "id": "impossible-dates",
+    "label": "Impossible timestamps",
+    "description": "Some message times become dates that cannot exist."
+  },
+  {
+    "id": "terminal-diagnostics",
+    "label": "System diagnostics",
+    "description": "Link status, message count and last-received time."
+  },
+  {
+    "id": "floating-clovers",
+    "label": "Floating clovers & blocks",
+    "description": "Clovers and alphabet blocks drift up the background."
+  },
+  {
+    "id": "class-board",
+    "label": "Classroom board",
+    "description": "Class rules, today's schedule and a rotating teacher note."
+  },
+  {
+    "id": "bunting",
+    "label": "Party bunting",
+    "description": "A string of pennants across the top."
+  },
+  {
+    "id": "archive-memories",
+    "label": "Archived memories & gallery",
+    "description": "Lucy's memories and drawings in the sidebar."
+  },
+  {
+    "id": "soft-chime",
+    "label": "Soft chime",
+    "description": "A quiet chime for new messages, and a brighter double chime when someone @mentions you."
+  }
+]
