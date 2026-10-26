@@ -1,0 +1,28 @@
+/* ---------- 2a. SOPHIA / GABBY : bright, soft, living-device ---------- */
+body[data-theme="gabby"] {
+  --bg: #fff4fa; --panel: rgba(255,255,255,.88); --text: #4a3358; --muted: #9a7fb0; --accent: #ff4f9a;
+  --border: #ffd0e6; --radius: 22px; --msg-radius: 22px; --msg-bg: #ffffff; --msg-own-bg: #ffe1f0; --input-bg: #fff;
+  --font: "Nunito", "Quicksand", "Baloo 2", "Trebuchet MS", "Comic Sans MS", system-ui, sans-serif;
+  --c-sophia: #ff3d90; --c-dream: #7b6bd6; --c-lucy: #6f9aa6; --c-terminal: #139a63; --c-melody: #0e9f86;
+  background: linear-gradient(135deg, #ffe3f1, #e6f0ff 50%, #fff6d6); background-size: 300% 300%; animation: gabbyBg 18s ease infinite;
+}
+@keyframes gabbyBg { 0%,100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
+body[data-theme="gabby"] .bg-layer { background-image: radial-gradient(circle, rgba(255,255,255,.9) 2px, transparent 3px);
+  background-size: 46px 46px; opacity: .5; animation: drift 40s linear infinite; }
+@keyframes drift { to { background-position: 460px 460px; } }
+body[data-theme="gabby"] .card, body[data-theme="gabby"] .chat { box-shadow: 0 6px 22px rgba(255,120,180,.18); }
+body[data-theme="gabby"] .composer button { color: #fff; background: linear-gradient(135deg, #ff6aa8, #ff9a6a); border-radius: 999px; box-shadow: 0 3px 10px rgba(255,100,150,.35); }
+body[data-theme="gabby"] .msg { box-shadow: 0 2px 8px rgba(160,100,200,.12); animation: gabbyPop .35s cubic-bezier(.2,1.6,.4,1); }
+@keyframes gabbyPop { from { opacity: 0; transform: translateY(10px) scale(.9); } to { opacity: 1; transform: none; } }
+body[data-theme="gabby"] .room-title { color: #ff4f9a; }
+body[data-theme="gabby"] .conn .dot { animation: pulse 1.6s ease-in-out infinite; }
+body[data-theme="gabby"] .intro { background: #fff; border: 2px dashed #ffb3d4; margin: .6rem .8rem 0; border-radius: 16px; }
+body[data-theme="gabby"] .chip { transition: transform .2s; }
+body[data-theme="gabby"] .chip.bump { transform: scale(1.12); }
+
+
+/* reactions: soft pink bubbles */
+body[data-theme="gabby"] .react { border-color: #ffc2dd; background: #fff0f7; color: #8a2a5b; box-shadow: 0 2px 8px rgba(255,122,184,.25); }
+body[data-theme="gabby"] .react.mine { background: #ff7ab8; color: #fff; border-color: #ff7ab8; box-shadow: 0 0 10px rgba(255,122,184,.7); }
+body[data-theme="gabby"] .react:hover { transform: scale(1.08); }
+body[data-theme="gabby"] .mention { background: rgba(255,122,184,.25); }

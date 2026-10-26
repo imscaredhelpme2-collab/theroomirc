@@ -1,0 +1,16 @@
+{
+  "id": "gabby",
+  "name": "Gabby (pink pop)",
+  "description": "Bright, soft, living-device.",
+  "labels": {
+    "room_title": "Our Chat Room!! ✧",
+    "roster_title": "Who's here?",
+    "prompt": "♥",
+    "placeholder": "Say something!! ^w^",
+    "send_label": "Send!",
+    "intro": "COMMUNICATION CHANNEL FOUND.",
+    "live_label": "connected ♥",
+    "lost_label": "reconnecting...",
+    "badge": "ACTIVE ♥"
+  }
+}
