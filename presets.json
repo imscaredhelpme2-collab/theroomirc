@@ -1,0 +1,104 @@
+[
+  {
+    "id": "classic",
+    "name": "Plain & simple",
+    "description": "Clean dark chat, no extras.",
+    "theme": "classic",
+    "gimmicks": [],
+    "name_color": "#7ab8ff"
+  },
+  {
+    "id": "gabby",
+    "name": "Gabby",
+    "description": "Pink, soft, with a live status chip.",
+    "theme": "gabby",
+    "gimmicks": [
+      "status-chips"
+    ],
+    "name_color": "#ff7ab8"
+  },
+  {
+    "id": "watcher",
+    "name": "The Watcher",
+    "description": "A weird dream, 1990s homepage edition.",
+    "theme": "dream",
+    "gimmicks": [
+      "glitch-title",
+      "retro-homepage",
+      "impossible-dates"
+    ],
+    "name_color": "#aaaaee"
+  },
+  {
+    "id": "lucy",
+    "name": "Lucy (archive)",
+    "description": "Galaxy archive with memories and a gallery.",
+    "theme": "lucy",
+    "gimmicks": [
+      "archive-memories"
+    ],
+    "name_color": "#99aab0"
+  },
+  {
+    "id": "maxwell",
+    "name": "Maxwell",
+    "description": "CRT terminal with live diagnostics.",
+    "theme": "terminal",
+    "gimmicks": [
+      "terminal-diagnostics"
+    ],
+    "name_color": "#44dd77"
+  },
+  {
+    "id": "clover",
+    "name": "Clover",
+    "description": "Daycare classroom: clovers, bunting, class board.",
+    "theme": "melody",
+    "gimmicks": [
+      "floating-clovers",
+      "class-board",
+      "bunting"
+    ],
+    "name_color": "#33ccaa"
+  },
+  {
+    "id": "stacy",
+    "name": "Stacy",
+    "description": "Memphis pop.",
+    "theme": "stacy",
+    "gimmicks": [],
+    "name_color": "#d934a2"
+  },
+  {
+    "id": "stella",
+    "name": "Stella",
+    "description": "Vaporwave.",
+    "theme": "vapor",
+    "gimmicks": [],
+    "name_color": "#ff68d1"
+  },
+  {
+    "id": "computer",
+    "name": "Computer/User",
+    "description": "1984 System Software.",
+    "theme": "mac",
+    "gimmicks": [],
+    "name_color": "#8c8c8c"
+  },
+  {
+    "id": "spooky",
+    "name": "Spooky season",
+    "description": "Halloween: pumpkin orange, moonlight and bats.",
+    "theme": "spooky",
+    "gimmicks": [],
+    "name_color": "#ff8a1f"
+  },
+  {
+    "id": "frost",
+    "name": "Frost",
+    "description": "Winter holidays: icy blues and falling snow.",
+    "theme": "frost",
+    "gimmicks": [],
+    "name_color": "#7fd3ff"
+  }
+]
