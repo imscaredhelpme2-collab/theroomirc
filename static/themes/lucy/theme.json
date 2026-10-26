@@ -1,0 +1,16 @@
+{
+  "id": "lucy",
+  "name": "Lucy (archive, galaxy)",
+  "description": "Archived, but galaxy-themed. She loved the stars.",
+  "labels": {
+    "room_title": "Archive",
+    "roster_title": "Roster (archive copy)",
+    "prompt": "—",
+    "placeholder": "Add to the archive…",
+    "send_label": "Send",
+    "intro": "ARCHIVE ACCESS.",
+    "live_label": "archive linked",
+    "lost_label": "archive unreachable",
+    "badge": "ARCHIVED — LAST ACTIVE: DAY 7"
+  }
+}

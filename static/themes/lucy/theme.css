@@ -1,0 +1,55 @@
+/* ---------- 2c. LUCY JONES : archived, but galaxy-themed (she loved the stars) ---------- */
+body[data-theme="lucy"] {
+  --bg: #0b0820; --panel: rgba(24,17,60,.74); --text: #ebe6ff; --muted: #a99ede; --accent: #c4aaff; --border: rgba(165,145,255,.34);
+  --radius: 16px; --msg-radius: 14px; --msg-bg: rgba(44,32,98,.72); --msg-own-bg: rgba(60,42,128,.78); --input-bg: rgba(12,9,34,.7);
+  --chat-bg: rgba(16,12,44,.62);
+  --font: Georgia, "Times New Roman", serif;
+  --hand: "Segoe Print", "Bradley Hand", "Chalkboard SE", "Comic Sans MS", cursive;
+  --c-sophia: #ff9fd0; --c-dream: #b9b9ff; --c-lucy: #ffe08a; --c-terminal: #7dffb2; --c-melody: #8ff2dc;
+  background-color: #0b0820;
+  background-image:
+    radial-gradient(ellipse at 18% 12%, rgba(143,82,230,.5), transparent 55%),
+    radial-gradient(ellipse at 88% 82%, rgba(36,112,210,.42), transparent 55%),
+    radial-gradient(ellipse at 62% 38%, rgba(226,92,176,.22), transparent 50%),
+    radial-gradient(ellipse at 8% 90%, rgba(40,190,200,.18), transparent 45%);
+  background-attachment: fixed;
+}
+body[data-theme="lucy"] .bg-layer::before, body[data-theme="lucy"] .bg-layer::after { content: ""; position: absolute; inset: 0; }
+body[data-theme="lucy"] .bg-layer::before {
+  background-image:
+    radial-gradient(1px 1px at 20px 30px, #fff, transparent), radial-gradient(1px 1px at 80px 120px, #dcd0ff, transparent),
+    radial-gradient(1.6px 1.6px at 150px 60px, #fff, transparent), radial-gradient(1px 1px at 230px 180px, #ffd9ec, transparent),
+    radial-gradient(1px 1px at 300px 90px, #fff, transparent), radial-gradient(1.6px 1.6px at 60px 220px, #bfe3ff, transparent);
+  background-size: 340px 260px; animation: twinkle 5s ease-in-out infinite;
+}
+body[data-theme="lucy"] .bg-layer::after {
+  background-image:
+    radial-gradient(2px 2px at 40px 70px, #fff, transparent), radial-gradient(1.4px 1.4px at 190px 150px, #ffe9a8, transparent),
+    radial-gradient(1px 1px at 330px 40px, #fff, transparent), radial-gradient(2px 2px at 400px 260px, #cfe2ff, transparent),
+    radial-gradient(1.2px 1.2px at 260px 350px, #fff, transparent), radial-gradient(1px 1px at 90px 330px, #f2d4ff, transparent);
+  background-size: 520px 410px; animation: twinkle 8s ease-in-out -3s infinite;
+}
+@keyframes twinkle { 0%,100% { opacity: .35; } 50% { opacity: 1; } }
+body[data-theme="lucy"] .card, body[data-theme="lucy"] .chat { backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+  box-shadow: 0 0 24px rgba(130,90,230,.22), inset 0 0 0 1px rgba(255,255,255,.04); }
+body[data-theme="lucy"] .room-title, body[data-theme="lucy"] .card h3, body[data-theme="lucy"] .mlabel { font-family: var(--hand); }
+body[data-theme="lucy"] .room-title { font-size: 1.4rem; background: linear-gradient(90deg, #ffb3e6, #b9a2ff, #8fdcff); -webkit-background-clip: text;
+  background-clip: text; color: transparent; }
+body[data-theme="lucy"] .room-title::before { content: "\2726  "; -webkit-text-fill-color: #ffe08a; }
+body[data-theme="lucy"] .card h3::before { content: "\2726  "; color: #ffe08a; }
+body[data-theme="lucy"] .messages { background: transparent; }
+body[data-theme="lucy"] .msg { box-shadow: 0 0 12px rgba(120,90,220,.18); }
+body[data-theme="lucy"] .stamp { border: 2px double #ffd27a; color: #ffd27a; padding: .1rem .45rem; transform: rotate(-3deg); font-family: var(--hand);
+  box-shadow: 0 0 10px rgba(255,210,122,.25); }
+body[data-theme="lucy"] .switch:hover, body[data-theme="lucy"] .switch:focus-visible { box-shadow: 0 0 10px rgba(196,170,255,.5); }
+body[data-theme="lucy"] .composer button { background: rgba(255,255,255,.14); color: var(--muted); }
+body[data-theme="lucy"] .composer textarea { color: var(--text); }
+body[data-theme="lucy"] .archive-note { color: #ffd27a; font-family: var(--hand); font-size: .85rem; }
+body[data-theme="lucy"] .intro { color: #d9ccff; font-family: var(--hand); }
+body[data-theme="lucy"] .roster li.active .pdot { color: #9ff0c4; }
+
+
+/* reactions: faint star-glow chips */
+body[data-theme="lucy"] .react { background: rgba(160,180,255,.08); border-color: rgba(160,180,255,.35); border-radius: 999px; }
+body[data-theme="lucy"] .react.mine { box-shadow: 0 0 10px rgba(160,180,255,.6); background: rgba(160,180,255,.2); }
+body[data-theme="lucy"] .react .emoji { filter: saturate(.6); }
