@@ -1,0 +1,65 @@
+/* ---------- 2e. MELODY! DAYCARE / CLOVER : teal + clovers, now a cheerful classroom ---------- */
+body[data-theme="melody"] {
+  --bg: #0f766e; --panel: #fffdf2; --text: #f4fff9; --muted: #2f7d70; --accent: #fff59d;
+  --border: #f4b400; --radius: 22px; --msg-radius: 20px;
+  --msg-bg: #e4fff0; --msg-own-bg: #fff3b0; --input-bg: #ffffff; --chat-bg: #fffbe8;
+  --ink: #134e4a;
+  --font: "Baloo 2", "Fredoka", "Comic Sans MS", "Trebuchet MS", system-ui, sans-serif;
+  --chalk: "Chalkboard SE", "Comic Neue", "Comic Sans MS", cursive;
+  --c-sophia: #d6338a; --c-dream: #6a5acd; --c-lucy: #3f7f8c; --c-terminal: #1e8a50; --c-melody: #0b7a66;
+  background: linear-gradient(135deg, #0f766e, #16a34a, #14b8a6, #34d399); background-size: 400% 400%; animation: cloverBg 14s ease infinite;
+}
+@keyframes cloverBg { 0%,100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
+/* bunting across the top */
+body[data-theme="melody"] .bunting { display: block; overflow: hidden; white-space: nowrap; line-height: 1; font-size: 1.5rem; letter-spacing: .55rem;
+  padding: .1rem 0 0 .3rem; background: repeating-linear-gradient(90deg, #ff6b6b 0 70px, #ffd93d 70px 140px, #4dabf7 140px 210px, #fff 210px 280px, #ffa94d 280px 350px);
+  -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent; }
+body[data-theme="melody"] .topbar { backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); margin: .3rem .8rem .6rem;
+  border: 3px dashed rgba(255,255,255,.7); border-radius: var(--radius); background: rgba(255,255,255,.16); }
+body[data-theme="melody"] .room-title { color: #fff; text-shadow: 0 3px 0 rgba(0,0,0,.18); font-size: 1.4rem; }
+body[data-theme="melody"] .conn, body[data-theme="melody"] .youare small { color: #e6fff4; }
+body[data-theme="melody"] .badge { background: #fff59d; color: var(--ink); padding: .1rem .55rem; border-radius: 999px; font-weight: 700; }
+body[data-theme="melody"] .switch { border-radius: 999px; border: 2px solid #fff; }
+/* construction-paper cards */
+body[data-theme="melody"] .card { background: var(--panel); color: var(--ink); border: 4px solid #4dabf7; border-radius: 20px;
+  box-shadow: 0 5px 0 rgba(0,0,0,.16); }
+body[data-theme="melody"] .side .card:nth-child(2n) { border-color: #ff8787; transform: rotate(.6deg); }
+body[data-theme="melody"] .side .card:nth-child(3n) { border-color: #ffd43b; transform: rotate(-.6deg); }
+body[data-theme="melody"] .card h3 { color: #0b7a66; font-family: var(--chalk); font-size: .95rem; letter-spacing: .06em; }
+body[data-theme="melody"] .roster li { border-bottom: 2px dotted #bfe9d9; }
+body[data-theme="melody"] .roster li:last-child { border-bottom: 0; }
+body[data-theme="melody"] .roster .pstate { color: #5b9a8c; }
+body[data-theme="melody"] .roster li.you .pname::after { content: " \2B50"; }
+body[data-theme="melody"] .roster li.active .pdot { color: #22c55e; }
+/* chalkboard (class rules) */
+body[data-theme="melody"] .board { background: #1f4a3f; color: #f4fff9; border: 6px solid #b98a52; border-radius: 12px;
+  box-shadow: inset 0 0 18px rgba(0,0,0,.4), 0 5px 0 rgba(0,0,0,.18); font-family: var(--chalk); }
+body[data-theme="melody"] .board h3 { color: #fff59d; }
+body[data-theme="melody"] .board ol { margin: 0; padding-left: 1.2rem; font-size: .9rem; }
+body[data-theme="melody"] .board li { padding: .15rem 0; }
+/* today's schedule */
+/* the class bulletin board = the chat */
+body[data-theme="melody"] .chat { color: var(--ink); border: 7px solid #b98a52; border-radius: 20px; box-shadow: 0 6px 0 rgba(0,0,0,.18); }
+body[data-theme="melody"] .intro { color: var(--ink); background: #fff59d; border: 3px dashed #f4b400; border-radius: 16px; margin: .6rem .8rem 0;
+  font-weight: 700; letter-spacing: .04em; }
+body[data-theme="melody"] .messages { background:
+    linear-gradient(90deg, transparent 2.3rem, rgba(240,90,90,.35) 2.3rem calc(2.3rem + 2px), transparent calc(2.3rem + 2px)),
+    repeating-linear-gradient(transparent 0 31px, rgba(77,171,247,.28) 31px 32px); }
+body[data-theme="melody"] .msg { color: var(--ink); border: 3px solid #51cf66; box-shadow: 0 3px 0 rgba(0,0,0,.12); }
+body[data-theme="melody"] .msg.mine { border-color: #f4b400; }
+body[data-theme="melody"] .msg .meta { color: #4b8a80; }
+body[data-theme="melody"] .msg .name { letter-spacing: .02em; }
+body[data-theme="melody"] .composer { border-top: 3px dashed #b98a52; }
+body[data-theme="melody"] .composer .prompt { color: #0b7a66; }
+body[data-theme="melody"] .composer textarea { color: var(--ink); border: 3px dashed #4dabf7; }
+body[data-theme="melody"] .composer textarea:focus { outline-color: #ff8787; }
+body[data-theme="melody"] .composer button { color: var(--ink); background: #ffd43b; border: 3px solid #f4b400; border-radius: 999px;
+  box-shadow: 0 3px 0 #d99a00; }
+body[data-theme="melody"] .composer button:active:not(:disabled) { transform: translateY(2px); box-shadow: 0 1px 0 #d99a00; }
+body[data-theme="melody"] .composer-foot { color: #4b8a80; }
+/* floating clovers + alphabet blocks */
+
+
+/* reactions: clover-green daycare stickers */
+body[data-theme="melody"] .react { border: 2px dashed #5bbf9a; background: #f1fff8; color: #1b6b52; border-radius: 14px; }
+body[data-theme="melody"] .react.mine { border-style: solid; background: #aaf0d3; }

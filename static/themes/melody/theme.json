@@ -1,0 +1,16 @@
+{
+  "id": "melody",
+  "name": "Clover (daycare classroom)",
+  "description": "Teal, cheerful, a little too cheerful.",
+  "labels": {
+    "room_title": "Aha! Class Chat ☘",
+    "roster_title": "Attendance",
+    "prompt": "☘",
+    "placeholder": "Aha! Indoor voice, please~",
+    "send_label": "Send ♡",
+    "intro": "Aha! A new classroom!",
+    "live_label": "Aha! We're connected!",
+    "lost_label": "Aha! Where did everyone go?",
+    "badge": "TEACHER ON DUTY ♡"
+  }
+}
