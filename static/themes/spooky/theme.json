@@ -1,0 +1,16 @@
+{
+  "id": "spooky",
+  "name": "Spooky season",
+  "description": "Pumpkin-orange and moonlit purple. Made for a Halloween event.",
+  "labels": {
+    "room_title": "🎃 The Haunted Room 🎃",
+    "roster_title": "Who's lurking?",
+    "prompt": "☠",
+    "placeholder": "Whisper something creepy…",
+    "send_label": "Boo!",
+    "intro": "The lights flicker. You are not alone.",
+    "live_label": "The spirits are listening",
+    "lost_label": "The spirits went quiet…",
+    "badge": "Trick or treat"
+  }
+}

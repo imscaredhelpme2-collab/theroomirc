@@ -1,0 +1,16 @@
+/* ---------- SPOOKY SEASON : Halloween event theme ---------- */
+body[data-theme="spooky"] {
+  --bg: #120a1c; --panel: #1d1230; --text: #f4e9ff; --muted: #b394d6; --accent: #ff8a1f; --border: #4a2a78;
+  --radius: 14px; --msg-radius: 14px; --msg-bg: #261640; --msg-own-bg: #3a1f5e; --input-bg: #150c24; --chat-bg: #1d1230;
+  background: radial-gradient(circle at 80% 8%, #ffe9a8 0 2.2%, transparent 2.4%), radial-gradient(circle at 50% 120%, #4a1d7a, #120a1c 60%);
+  background-attachment: fixed;
+}
+body[data-theme="spooky"] .room-title { color: var(--accent); text-shadow: 0 0 12px rgba(255,138,31,.6); letter-spacing: .06em; }
+body[data-theme="spooky"] .bg-layer::before { content: "🦇"; position: absolute; top: 14%; left: -6%; font-size: 1.8rem; animation: batfly 22s linear infinite; }
+body[data-theme="spooky"] .bg-layer::after { content: "🦇"; position: absolute; top: 34%; left: -6%; font-size: 1.3rem; animation: batfly 31s linear 6s infinite; }
+@keyframes batfly { from { transform: translateX(0) translateY(0); } 50% { transform: translateX(60vw) translateY(-30px); } to { transform: translateX(112vw) translateY(10px); } }
+body[data-theme="spooky"] .msg { border-color: #5b3590; }
+body[data-theme="spooky"] .msg.mine { border-color: var(--accent); }
+body[data-theme="spooky"] .composer button { color: #1a0d00; }
+body[data-theme="spooky"] .react { background: rgba(255,138,31,.14); border-color: rgba(255,138,31,.5); }
+body[data-theme="spooky"] .react.mine { background: rgba(255,138,31,.4); box-shadow: 0 0 10px rgba(255,138,31,.6); }
