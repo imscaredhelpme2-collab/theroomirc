@@ -1,0 +1,76 @@
+{% extends "page.html" %}
+{% block title %}Admin{% endblock %}
+{% block bodyclass %}page-body{% endblock %}
+{% block content %}
+<div class="page-wrap">
+  <header class="page-head">
+    <h1>Admin</h1>
+    <nav><a href="{{ url_for('room') }}">← back to chat</a> <a href="{{ url_for('settings_page') }}">my settings</a> <a href="{{ url_for('gallery_page') }}">theme gallery</a> <a href="{{ url_for('logout') }}">log out</a></nav>
+  </header>
+
+  <section class="panel">
+    <h2>This app</h2>
+    <div class="admin-settings">
+      <label>App name <input id="roomName" maxlength="40"></label>
+      <label>Invite code <input id="inviteCode" maxlength="40" placeholder="empty = no code needed"></label>
+      <label class="check"><input type="checkbox" id="regOpen"> anyone on the network can create an account</label>
+    </div>
+    <div class="row"><button type="button" id="saveRoom">Save room settings</button><span id="roomMsg" role="status"></span></div>
+  </section>
+
+
+  <section class="panel">
+    <h2>Event look</h2>
+    <p class="hint">Switch a preset on for <b>everyone</b> for a while (Halloween, winter holidays, a party). People can opt out in their settings. It switches itself off when the time is up.</p>
+    <p id="eventNow" class="hint"></p>
+    <div class="admin-settings">
+      <label>Preset <select id="eventPreset"></select></label>
+      <label>Banner title <input id="eventTitle" maxlength="40" placeholder="Spooky night"></label>
+      <label>Runs for (hours, 0 = until I switch it off) <input id="eventHours" type="number" min="0" max="1440" value="24"></label>
+    </div>
+    <div class="row"><button type="button" id="eventOn">Switch on</button><button type="button" class="ghost" id="eventOff">Switch off</button><span id="eventMsg" role="status"></span></div>
+  </section>
+
+  <section class="panel">
+    <h2>Users <small id="userCount"></small></h2>
+    <div class="table-wrap">
+      <table class="users" id="usersTable">
+        <thead><tr><th>User</th><th>Status</th><th>IRC</th><th>Last seen</th><th>Actions</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <p class="hint">These are the local chat accounts. Each one has its own IRC login, which you can see here (server and nick) but never its password. Disabling an account hangs up its IRC connection; deleting it also deletes its saved login and chat logs. IRC rules (who can speak where) are set by the IRC network, not here.</p>
+  </section>
+
+  <section class="panel">
+    <h2>Presets</h2>
+    <p class="hint">The one-click looks shown at sign-up and in settings. Saving here replaces <code>presets.json</code> for the whole room (the file is kept and “Reset” brings it back).</p>
+    <div id="presetList"></div>
+    <div class="row"><button type="button" class="ghost" id="addPreset">Add a preset</button><button type="button" id="savePresets">Save presets</button><button type="button" class="ghost" id="resetPresets">Reset to presets.json</button><span id="presetMsg" role="status"></span></div>
+  </section>
+
+  <section class="panel">
+    <h2>Backups</h2>
+    <div class="admin-two">
+      <div>
+        <h3>Database copies</h3>
+        <p class="hint" id="backupInfo"></p>
+        <div class="row"><button type="button" id="backupNow">Back up now</button><span id="backupMsg" role="status"></span></div>
+        <ul id="backupList" class="plain"></ul>
+        <p class="hint">Copies contain password hashes, your members' IRC logs and their saved (encrypted) IRC passwords. The key that decrypts them is in <code>database/secret.key</code>, so keep both private.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel">
+    <h2>Audit log</h2>
+    <p class="hint">Who did what, and when. Newest first.</p>
+    <div class="table-wrap"><table class="auditlog"><thead><tr><th>When</th><th>Who</th><th>What</th><th>About</th><th>Details</th></tr></thead><tbody id="auditBody"></tbody></table></div>
+    <div class="row"><button type="button" class="ghost" id="auditMore" hidden>Show older</button></div>
+  </section>
+</div>
+{% endblock %}
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/common.js') }}"></script>
+<script src="{{ url_for('static', filename='js/admin.js') }}"></script>
+{% endblock %}

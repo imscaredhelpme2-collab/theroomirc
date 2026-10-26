@@ -1,0 +1,18 @@
+{% extends "page.html" %}
+{% block title %}...{% endblock %}
+{% block content %}
+<main class="login-card wide">
+  <h1>FIRST RUN</h1>
+  <p class="login-note">Create the admin account. The setup code is printed in the console where the server is running.</p>
+  <form method="post" action="{{ url_for('setup') }}">
+    <input type="hidden" name="csrf" value="{{ csrf_token() }}">
+    <input name="code" placeholder="setup code" value="{{ form.get('code','') }}" autocomplete="off" required autofocus>
+    <input name="username" placeholder="admin username" value="{{ form.get('username','') }}" autocapitalize="none" required>
+    <input name="display_name" placeholder="display name" value="{{ form.get('display_name','') }}" maxlength="24">
+    <input name="password" type="password" placeholder="password" autocomplete="new-password" required>
+    <input name="confirm" type="password" placeholder="repeat password" autocomplete="new-password" required>
+    <button type="submit">CREATE ADMIN</button>
+  </form>
+  {% if error %}<p class="login-error" role="alert">{{ error }}</p>{% endif %}
+</main>
+{% endblock %}

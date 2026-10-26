@@ -1,0 +1,9 @@
+{% extends "page.html" %}
+{% block title %}...{% endblock %}
+{% block content %}
+<main class="login-card wide">
+  <h1>ACCOUNT DISABLED</h1>
+  <p class="disabled-msg">{{ message }}</p>
+  <p class="login-alt">signed in as {{ name }} · <a href="{{ url_for('logout') }}">log out</a></p>
+</main>
+{% endblock %}

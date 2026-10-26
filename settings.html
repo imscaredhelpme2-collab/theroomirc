@@ -1,0 +1,138 @@
+{% extends "page.html" %}
+{% block title %}Settings{% endblock %}
+{% block bodyclass %}page-body{% endblock %}
+{% block content %}
+<div class="page-wrap">
+  <header class="page-head">
+    <h1>Settings</h1>
+    <nav>
+      <a href="{{ url_for('room') }}">← back to the room</a>
+      <a href="{{ url_for('room', safe=1) }}" title="Opens the room with your custom CSS/JS switched off">room (safe mode)</a>
+      <a href="{{ url_for('gallery_page') }}">theme gallery</a>
+      <a href="{{ url_for('sandbox_page') }}">gimmick sandbox</a>
+      {% if user.is_admin %}<a href="{{ url_for('admin_page') }}">admin</a>{% endif %}
+      <a href="{{ url_for('logout') }}">log out</a>
+    </nav>
+  </header>
+
+  <div class="settings-grid">
+    <div class="settings-forms" id="settingsForm">
+      <section class="panel">
+        <h2>Profile</h2>
+        <p class="hint">Signed in as <b>{{ user.username }}</b>. This is your local chat account. Everything on this page is cosmetic and only shown in <em>your</em> browser: other people on IRC cannot see your theme, colours, effects or scripts. Your IRC nick, server and password are on the <a href="{{ url_for('irc_page') }}">connection page</a>.</p>
+        <label>Display name <small>(your local account name, shown to the admin)</small> <input name="display_name" maxlength="24"></label>
+        <label>Colour of my own nick (in my view only)
+          <span class="inline"><input type="color" name="name_color" value="#7ab8ff"><button type="button" class="ghost" id="clearColor">use theme colour</button></span>
+        </label>
+        <label class="check"><input type="checkbox" name="show_name_colors"> give every nick its own colour</label>
+      </section>
+
+      <section class="panel">
+        <h2>Message effects</h2>
+        <p class="hint">An effect plays on messages that arrive for <b>you</b>. It happens in your browser only; nobody on IRC sees it. It is off unless you choose one.</p>
+        <label>Effect on incoming messages <select name="msg_effect"><option value="none">none</option><option value="sparkle">sparkle</option><option value="glitch">glitch</option><option value="typewriter">typewriter</option></select></label>
+        <div class="row"><button type="button" class="ghost" id="fxTest">Play it in the preview</button></div>
+        <label class="check"><input type="checkbox" name="show_effects"> play effects at all (untick for calm reading)</label>
+      </section>
+
+      <section class="panel">
+        <h2>Look</h2>
+        <p class="hint">Start from a preset, then change anything.</p>
+        <div class="presets" id="presets"></div>
+        <label>Theme <select name="theme" id="themeSel"></select></label>
+        <p class="hint" id="themeDesc"></p>
+        <fieldset id="themeMaker" hidden>
+          <legend>Theme maker</legend>
+          <div class="colorgrid" id="colorGrid"></div>
+          <label>Font <select name="font" data-var="font"></select></label>
+          <label>Corner roundness <input type="range" min="0" max="30" data-var="radius"> <output id="radiusOut"></output></label>
+        </fieldset>
+        <details>
+          <summary>Change the theme's wording</summary>
+          <p class="hint">Leave blank to use the theme's own words.</p>
+          <div id="labelGrid" class="labelgrid"></div>
+        </details>
+        <label>Intro line <textarea name="custom_intro" rows="2" placeholder="shown for a few seconds when you open the room"></textarea></label>
+        <label>Show the intro <select name="intro_mode"><option value="once">only the first time</option><option value="always">every time</option><option value="never">never</option></select></label>
+      </section>
+
+      <section class="panel">
+        <h2>Scheduled looks</h2>
+        <p class="hint">Switch to a preset automatically at certain times of day, for example the Watcher after midnight. Times use this device's clock. When no rule matches, your normal look above is used. A room-wide event look from the admin takes priority unless you turn that off below.</p>
+        <div id="scheduleList"></div>
+        <div class="row"><button type="button" class="ghost" id="addRule">Add a scheduled look</button></div>
+        <label class="check"><input type="checkbox" name="follow_events"> let room-wide event looks (set by the admin) replace my look while they run</label>
+      </section>
+
+      <section class="panel">
+        <h2>Gimmicks</h2>
+        <p class="hint">Little extras that run in your browser only.</p>
+        <div id="gimmickList"></div>
+      </section>
+
+      <section class="panel">
+        <h2>Custom code</h2>
+        <p class="hint">Raw CSS and JavaScript, applied only to your own view. The preview updates as you type CSS. If you ever break your page, open the <a href="{{ url_for('room', safe=1) }}">room in safe mode</a>.</p>
+        <label class="check"><input type="checkbox" name="use_custom_css"> use my CSS</label>
+        <textarea name="custom_css" rows="9" spellcheck="false" placeholder="body[data-theme] .msg { border-radius: 2px; }"></textarea>
+        <label class="check"><input type="checkbox" name="use_custom_js"> use my JS</label>
+        <textarea name="custom_js" rows="9" spellcheck="false" placeholder="Room.on('incoming', m => console.log(m.name, m.text));"></textarea>
+        <div class="row"><button type="button" class="ghost" id="runJs">Run my JS in the preview</button></div>
+        <details class="help">
+          <summary>What can my JS do?</summary>
+<pre>Room.me                      { id, name, color, admin }
+Room.on(event, fn)           events: 'message' 'incoming' 'sent' 'send-error'
+                                     'conn' (true/false) 'users' 'count' 'ready'
+Room.card('Title')           adds a card to the side panel, returns the element
+Room.banner(element)         puts an element above the top bar
+Room.background              the full-screen decorative layer (element)
+Room.setTimeFormatter(fn)    fn(message, Date) -> string, or null for default
+Room.gimmick({id, init})     register a gimmick like the built-in ones
+
+Message objects: { id, uid, name, text, ts, edited, kind }
+
+For CSS: messages are .msg (.mine for yours, .system for notices),
+each with data-sender="their display name".</pre>
+        </details>
+      </section>
+
+      <section class="panel">
+        <h2>Share this look</h2>
+        <p class="hint">Turn your theme, wording, CSS and gimmicks into a single code anyone can paste in, or publish it to the <a href="{{ url_for('gallery_page') }}">theme gallery</a>. Sharing uses what is on this page right now, saved or not.</p>
+        <label class="check"><input type="checkbox" id="shareJs"> also include my custom JS <small>(code runs in the browser of whoever imports it; only share it with people you trust)</small></label>
+        <div class="row"><button type="button" id="exportBtn">Make a share code</button><button type="button" class="ghost" id="copyCode">Copy</button><span id="shareMsg" role="status"></span></div>
+        <textarea id="codeBox" rows="3" spellcheck="false" placeholder="your share code appears here, or paste someone else's here and press Import" style="font-family:monospace"></textarea>
+        <label class="check"><input type="checkbox" id="importJs"> when importing, also take the JS in the code <small>(off by default)</small></label>
+        <div class="row"><button type="button" id="importBtn">Import code into this page</button></div>
+        <hr>
+        <label>Gallery title <input id="pubTitle" maxlength="40" placeholder="Midnight Diner"></label>
+        <label>Description <input id="pubDesc" maxlength="200" placeholder="what it looks like or does"></label>
+        <div class="row"><button type="button" id="publishBtn">Publish to the gallery</button><span id="pubMsg" role="status"></span></div>
+        <p class="hint">Publishing includes JS only if you ticked the box above.</p>
+      </section>
+
+      <div class="savebar"><button type="button" id="saveBtn">Save settings</button><span id="saveMsg" role="status"></span></div>
+
+      <section class="panel">
+        <h2>Password</h2>
+        <label>Current password <input type="password" id="pwCur" autocomplete="current-password"></label>
+        <label>New password <input type="password" id="pwNew" autocomplete="new-password"></label>
+        <label>Repeat new password <input type="password" id="pwNew2" autocomplete="new-password"></label>
+        <div class="row"><button type="button" id="pwBtn">Change password</button><span id="pwMsg" role="status"></span></div>
+        <p class="hint">Changing it signs you out on your other devices.</p>
+      </section>
+    </div>
+
+    <aside class="settings-preview">
+      <h2>Preview</h2>
+      <iframe id="previewFrame" title="Live preview of your theme"></iframe>
+      <p class="hint">Preview shows your unsaved choices. Messages in it are samples.</p>
+    </aside>
+  </div>
+</div>
+<script id="settingsData" type="application/json">{{ data|tojson }}</script>
+{% endblock %}
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/common.js') }}"></script>
+<script src="{{ url_for('static', filename='js/settings.js') }}"></script>
+{% endblock %}
